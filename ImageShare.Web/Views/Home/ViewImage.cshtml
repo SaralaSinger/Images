@@ -1,0 +1,32 @@
+﻿@model ViewModel
+@if (Model.ShowPic)
+{
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <img src="/uploads/@Model.Image.FileName" style="width: 800px;" />
+            <br />
+            <h3>Views: @Model.Image.Views</h3>
+        </div>
+    </div>
+}
+else
+{
+
+
+<div class="row">
+        <div class="col-md-6 offset-md-3 bg-light p-4 rounded shadow">
+                @if (Model.WrongPassword)
+                {
+                    <h4>Wrong Password!</h4>
+                }           
+            <h4>Please enter the password for this image:</h4>
+            <form method="post">
+                <input type="hidden" name="id" value=@Model.Image.Id />
+                <input type="text" class="form-control" placeholder="Password" name="password" />
+                <br />
+                <button class="btn btn-primary w-100">Submit</button>
+            <input name="__RequestVerificationToken" type="hidden" value="CfDJ8GpFy_uQ3T1Bq_WQtiUN9YOYQGeOMuqzybU_eWR5Dlwuc56oE94VEZ7dwxPvcSE-XujtIwhRFAFV9jbGRM1-H1BB443sO8pkMK0v1nxcuHcvakcKvDyTNNLoMfVnOyy-aNv1BYoWX1p6Bp_xugfVKI0" /></form>
+        </div>
+    </div>
+  }   
+    
